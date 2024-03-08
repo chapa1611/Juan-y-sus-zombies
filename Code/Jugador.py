@@ -1,3 +1,4 @@
+"""Este modulo almacena todo los atributos y metodos del jugador"""
 import pygame
 from pygame.locals import *
 from pygame.sprite import Sprite
