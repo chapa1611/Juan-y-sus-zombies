@@ -1,4 +1,5 @@
 Main -> Version mas reciente y estable del juego. No trabajar individualmente sobre la misma
+
 CoreDev -> Rama para integrar los distintos modulos que trabajemos, recordar que al trabajar en esta rama se debe tener cuidado con eliminar el trabajo ya hecho, 
 para evitar esto, subir unicamente el archivo en el que se trabajo (ej: git add Zombies.py Las demas ramas son espacios especializados en el desarollo de un modulo,
 este espacio lo crean por medio del comando: git branch ; en este espacio utilizamos recursos que nos ayuden a programar el modulo que estemos trabajando
@@ -10,4 +11,5 @@ y especificar en el push que rama se va a cambiar.
 
 Agregar sus nombres :
 - Juan Diego Céspedes Uribe - 20232020148
+- Nicolas Diaz 20232020059
 
