@@ -9,6 +9,7 @@ __* Importante__:
     Antes de empezar a trabajar en un modulo, realizar un pull de la rama en la que se trabajara, especificar que archivo se va a cambiar y especificar en el push que rama se va a
     cambiar.
 Agregar sus nombres : 
+- Mathew Rodriguez 20232020050
 - Juan Diego Céspedes Uribe - 20232020148
 - Nicolas Diaz 20232020059
 - David Felipe Gil Laverde 20232020081
