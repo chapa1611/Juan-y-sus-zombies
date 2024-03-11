@@ -8,5 +8,6 @@ recursos globales, es decir, a las imagenes y valores que se usaran en el codigo
 __Importante__: Antes de empezar a trabajar en un modulo, realizar un pull de la rama en la que se trabajara, especificar que archivo se va a cambiar
 y especificar en el push que rama se va a cambiar.
 
-
 Agregar sus nombres :
+- Juan Diego Céspedes Uribe - 20232020148
+
