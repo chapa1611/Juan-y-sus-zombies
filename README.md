@@ -12,5 +12,6 @@ Agregar sus nombres :
 - Juan Diego Céspedes Uribe - 20232020148
 - Nicolas Diaz 20232020059
 - David Felipe Gil Laverde 20232020081
+- Muñoz Mariño David Eduardo  20232020281
 
 
