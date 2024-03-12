@@ -9,3 +9,5 @@ __* Importante__:
     Antes de empezar a trabajar en un modulo, realizar un pull de la rama en la que se trabajara, especificar que archivo se va a cambiar y especificar en el push que rama se va a
     cambiar.
 Agregar sus nombres : 
+
+María Juliana Alzate Saaavedra 20232020082
