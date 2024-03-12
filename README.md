@@ -10,10 +10,15 @@ __* Importante__:
     cambiar.
 
 Agregar sus nombres : 
+
+
+   
+
 - Mathew Rodriguez 20232020050
 - Juan Diego Céspedes Uribe - 20232020148
 - Nicolas Diaz 20232020059
 - David Felipe Gil Laverde 20232020081
 - Muñoz Mariño David Eduardo  20232020281
 - Erick Quiñones 20232020074   
+- María Juliana Alzate Saaavedra 20232020082
 
