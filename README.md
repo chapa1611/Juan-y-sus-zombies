@@ -15,5 +15,5 @@ la rama CoreDev, se debe adaptar el codigo a los recursos globales, es decir, a 
 .
 
 - __Agregar sus nombres:__ 
-Mathew Rodriguez 
-Juan Sebastian Diaz Peña - 20232020071
+- Mathew Rodriguez 
+- Juan Sebastian Diaz Peña - 20232020071
