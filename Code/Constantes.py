@@ -5,8 +5,8 @@ import pygame
 Tamaño_pantalla = ancho, altura = 800, 600
 
 #imagenes
-jugador = [[pygame.image.load("imagenes/Juaniz1.png"), pygame.image.load("imagenes/Juaniz2.png"), pygame.image.load("imagenes/Juaniz3.png")],
-           [pygame.image.load("imagenes/Juan1.png"), pygame.image.load("imagenes/Juan2.png"), pygame.image.load("imagenes/Juan3.png")]]
+jugador1 =[pygame.image.load("imagenes/Juaniz1.png"), pygame.image.load("imagenes/Juaniz2.png"), pygame.image.load("imagenes/Juaniz3.png"), pygame.image.load("imagenes/Juaniz2.png")]
+jugador2 = [pygame.image.load("imagenes/Juan1.png"), pygame.image.load("imagenes/Juan2.png"), pygame.image.load("imagenes/Juan3.png"), pygame.image.load("imagenes/Juan2.png")]
 """Imagen_zombie = null
 Imagen_tumba = null
 Fondo_inicio = null

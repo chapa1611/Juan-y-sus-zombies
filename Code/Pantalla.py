@@ -13,17 +13,18 @@ def main():
     background_image=pygame.image.load("imagenes/negro.jpg")
     background_rect=background_image.get_rect()
     pygame.display.set_caption("Inserte titulo creativo xd")
-    juan=Juan(size)
+    juanito=Juan(size)
 
     while 1:
         for event in pygame.event.get():
             if event.type ==pygame.QUIT:
                 sys.exit()
         
-        Jugador.animar()
+
+        juanito.animar()
 
         screen.blit(background_image, background_rect)
-        screen.blit(juan.imagen, juan.rect)
+        screen.blit(juanito.imagen, juanito.rect)
         pygame.display.update()
         pygame.time.delay(10)
 

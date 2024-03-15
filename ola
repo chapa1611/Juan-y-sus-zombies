@@ -1,0 +1,79 @@
+"""Este modulo almacena todo los atributos y metodos del jugador"""
+import pygame
+from pygame.locals import *
+from pygame.sprite import Sprite
+from Constantes import *
+import time
+class Juan(Sprite):
+    def __init__(self, contenedor):
+        self.puntos=0
+        self.vida=3
+        self.angulo=0
+        self.contenedor=contenedor
+        self.imagen=jugador[1][1]
+        self.rect = self.imagen.get_rect()
+        self.rect.move_ip(60, -130)
+        self.rect.x %= self.contenedor[0]
+        self.rect.y %= self.contenedor[1]
+        self.sentido = 1
+        self.juan = 0
+    def animar(self):
+        teclas = pygame.key.get_pressed()
+        tiempo = 1
+        if teclas[K_RIGHT]:
+            sentido = 1
+            if self.juan == 2:
+                self.juan = 0
+            else:
+                self.juan += 1
+        elif teclas[K_LEFT]:
+            sentido = 0
+            if self.juan == 2:
+                self.juan = 0
+            else:
+                self.juan += 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import pygame
+from pygame.locals import *
+import sys
+from Jugador import *
+from Constantes import *
+
+size=width, height=800, 600
+screen=pygame.display.set_mode(size)
+
+def main():
+    pygame.init()
+    background_image=pygame.image.load("imagenes/negro.jpg")
+    background_rect=background_image.get_rect()
+    pygame.display.set_caption("Inserte titulo creativo xd")
+    juanito=Juan(size)
+
+    while 1:
+        for event in pygame.event.get():
+            if event.type ==pygame.QUIT:
+                sys.exit()
+        
+        juanito.animar()
+        imagen = jugador[juanito.sentido][juanito.juan]
+
+        screen.blit(background_image, background_rect)
+        screen.blit(juanito.imagen, juanito.rect)
+        pygame.display.update()
+        pygame.time.delay(10)
+
+if __name__=="__main__":
+    main()
