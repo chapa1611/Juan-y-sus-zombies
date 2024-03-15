@@ -1,12 +1,8 @@
+
 import sys 
 import pygame 
 import random
 from pygame.sprite import Sprite
-
-size = width, height = 800, 600
-screen = pygame.display.set_mode(size)
-
-tumbas = []
 
 class Tumbas(Sprite):
     def __init__(self,contenedor):
@@ -15,19 +11,26 @@ class Tumbas(Sprite):
         self.base_image = pygame.image.load("Tumbas.jpg")
         self.image = self.base_image
         self.rect = self.image.get_rect()
-        self.rect.move_ip(random.randint(0,self.contenedor[0]), 900)
+        self.velocidad = [-1,0]
+        self.rect.x = size[0]-100#random.randint(0,contenedor[0]-50)
+        self.rect.y = 300
+
+    def move(self): 
+          self.velocidad[0] *= 1
+          self.rect = self.rect.move(self.velocidad) 
         
-    def update(self):   
-        self.rect.x = self.rect.x % self.contenedor[0]
-        self.rect.y = self.rect.y % self.contenedor[1]
-    
+
+size = width, height = 800, 600
+screen = pygame.display.set_mode(size)
+tumbas = Tumbas(size)
 pygame.init()
+
 while 1:
     for event in pygame.event.get():
         if event.type == pygame.QUIT: 
-            sys.exit()
-    tumba1 = Tumbas(size)
-    tumba1.update()
-    screen.blit(tumba1.image, tumba1.rect)
+            sys.exit()               
+    screen.blit(tumbas.image, tumbas.rect)
+    tumbas.move()
     pygame.display.update()
+    pygame.display.clear()
     pygame.time.delay(10)
