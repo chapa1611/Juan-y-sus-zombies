@@ -7,6 +7,7 @@ Tamaño_pantalla = ancho, altura = 800, 600
 #imagenes
 jugador1 =[pygame.image.load("imagenes/Juaniz1.png"), pygame.image.load("imagenes/Juaniz2.png"), pygame.image.load("imagenes/Juaniz3.png"), pygame.image.load("imagenes/Juaniz2.png")]
 jugador2 = [pygame.image.load("imagenes/Juan1.png"), pygame.image.load("imagenes/Juan2.png"), pygame.image.load("imagenes/Juan3.png"), pygame.image.load("imagenes/Juan2.png")]
+bola = [pygame.image.load("imagenes/bola.png"), pygame.image.load("imagenes/bola (1).png"), pygame.image.load("imagenes/bola (2).png"), pygame.image.load("imagenes/bola (3).png")]
 """Imagen_zombie = null
 Imagen_tumba = null
 Fondo_inicio = null

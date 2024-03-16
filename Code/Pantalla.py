@@ -1,4 +1,3 @@
-
 import pygame
 from pygame.locals import *
 import sys
@@ -19,12 +18,14 @@ def main():
         for event in pygame.event.get():
             if event.type ==pygame.QUIT:
                 sys.exit()
-        
 
         juanito.animar()
+        juanito.disparar()
 
         screen.blit(background_image, background_rect)
         screen.blit(juanito.imagen, juanito.rect)
+        screen.blit(juanito.bola, juanito.rect2)
+        
         pygame.display.update()
         pygame.time.delay(10)
 
