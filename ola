@@ -34,11 +34,28 @@ class Juan(Sprite):
                 self.juan += 1
 
 
+        balas.update()
 
 
 
+class Bala(pygame.sprite.Sprite):
+    def __init__(self, x, y):
+        super().__init__()
+        self.cont2 = (self.cont2+1)%4
+        self.bola=bola[self.cont2]
+        self.rect=self.image.get_rect()
+        self.rect.center=(x,y)
+        self.velocidad=7
+    def update(self):
+        self.rect.y -= self.velocidad
+        if self.rect.bottom < 0:
+            self.kill()
 
 
+
+        elif teclas[K_z]:
+            nueva_bala=Bala(self.rect.centerx, self.rect.top)
+            balas.add(nueva_bala)
 
 
 
@@ -68,7 +85,7 @@ def main():
                 sys.exit()
         
         juanito.animar()
-        imagen = jugador[juanito.sentido][juanito.juan]
+
 
         screen.blit(background_image, background_rect)
         screen.blit(juanito.imagen, juanito.rect)
