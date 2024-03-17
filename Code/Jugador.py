@@ -17,12 +17,11 @@ class Juan(Sprite):
         self.imagenes_izquierda = jugador1 #referencia los sprites de cuando el personaje este caminando para la izq
         self.imagen = self.imagenes_derecha[self.cont] 
         self.rect = self.imagen.get_rect()
-        self.rect.move_ip(60, -130)    #donde va a aparecer el jugador
+        self.rect.move_ip(50,350)    #donde va a aparecer el jugador
         self.rect.x %= self.contenedor[0] 
         self.rect.y %= self.contenedor[1]
         self.bolas = bola[self.cont2]  
         self.rect2 = self.bolas.get_rect()
-        self.rect2.move_ip(130, -47)
         self.rect2.x %= self.contenedor[0]
         self.rect2.y %= self.contenedor[1]
         self.balas = pygame.sprite.Group()     #para la animacion de la bala, que ps seria que vaya girando xd(en este caso bolas de nieve xd)
@@ -35,25 +34,26 @@ class Juan(Sprite):
         self.last_shot_time_espada = 0
 
     def animar(self):
+    
         teclas = pygame.key.get_pressed()
 
         if teclas[K_RIGHT]:
             self.cont = (self.cont + 1) % 4
             self.imagen = self.imagenes_derecha[self.cont]       
-            pygame.time.delay(100)            #se mueve con la flechita derecha y hace la animacion, modificando el tiempo provoca que vaya mas rapido o lenta la animacion xd
-            if self.rect.x + self.rect.width < 800:
-                self.rect.x += 5     #para que no se salga de la pantalla xd
+            pygame.time.delay(80)            #se mueve con la flechita derecha y hace la animacion, modificando el tiempo provoca que vaya mas rapido o lenta la animacion xd
+            if self.rect.x + self.rect.width < Tamaño_pantalla[0]:
+                self.rect.x += 10     #para que no se salga de la pantalla xd
 
         elif teclas[K_LEFT]:
             self.cont = (self.cont + 1) % 4
             self.imagen = self.imagenes_izquierda[self.cont] 
-            pygame.time.delay(100) #lo mismo de arriba pero hacia la izq xd
+            pygame.time.delay(80) #lo mismo de arriba pero hacia la izq xd
             if self.rect.x > 0:
-                self.rect.x -= 5  #para que no se salga de la pantalla x2 xd
+                self.rect.x -= 10  #para que no se salga de la pantalla x2 xd
         else:
             self.cont = (self.cont + 1) % 4
             self.imagen = self.imagenes_derecha[self.cont]
-            pygame.time.delay(200)     #para hacer que cuando se quede quieto ps vaya avanzando en el mismo lugar por el hecho de que la pantalla se mueve xd
+            pygame.time.delay(80)     #para hacer que cuando se quede quieto ps vaya avanzando en el mismo lugar por el hecho de que la pantalla se mueve xd
         if self.cooldown_bala > 0:
             self.cooldown_bala -= pygame.time.get_ticks() - self.last_shot_time_bala    
         else:       #aqui ps va incluido lo del cooldown de la bala xd, pa que funcione dicho cooldwon vaya xd
@@ -89,7 +89,7 @@ class Bala(pygame.sprite.Sprite):
         self.image = self.images[self.index]
         self.rect = self.image.get_rect()
         self.rect.center = (x, y)
-        self.velocidad = 10         #se le puede modificar la velocidad si quieren que la bala vaya mas lento o rapida segun sea el caso xd
+        self.velocidad = 20         #se le puede modificar la velocidad si quieren que la bala vaya mas lento o rapida segun sea el caso xd
         self.direction = direction     #esto es ps si el jugador la dispara ya sea mirando pa la derecha o izq xd
         self.last_update = pygame.time.get_ticks()
         self.frame_rate = 50     #pa que se vea medianamente fluido xd
@@ -147,30 +147,22 @@ class Espada(pygame.sprite.Sprite):
                 self.kill()   #para que no pueda matar zombies con la espada que todavia no han llegado a pantalla xd
     #Ahora bien, esto se uso ps para ir comprobando como iba quedando la wea, toncs
     #si por alguna razon algo no carga quizas se deban colocar algo de lo que hay aca xd
-    """
-import pygame
+  
+"""import pygame
 import sys
 from Jugador import *
 from Constantes import *
-size = width, height = 800, 600
+size = Tamaño_pantalla
 screen = pygame.display.set_mode(size)
-def main():
-    pygame.init()
-    background_image = pygame.image.load("imagenes/negro.jpg")
-    background_rect = background_image.get_rect()
-    pygame.display.set_caption("Inserte titulo creativo xd")
+def jugador():
     juanito = Juan(size)
     while 1:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit()
         juanito.animar()
-        screen.blit(background_image, background_rect)
         screen.blit(juanito.imagen, juanito.rect)
         juanito.balas.draw(screen)
         juanito.espadas.draw(screen)
-        pygame.display.update()
-        pygame.time.delay(10)
-if __name__ == "__main__":
-    main()
 """
+

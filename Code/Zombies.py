@@ -5,57 +5,50 @@ from Constantes import *
 from Jugador import *
 
 
-tamaño = w,h = 800,600
 
-screen = pygame.display.set_mode(tamaño)
+
+screen = pygame.display.set_mode(Tamaño_pantalla)
 blanco=(255,255,255)
 
 """
     La clase Cosa solo esta hecha para pruebas de colicion 
 """
-class Cosa(Sprite):
-    def __init__(self,cont):
-        self.imagen=pygame.image.load("Juan2.png")
-        self.rect=self.imagen.get_rect()
-        self.contenedor=cont
-        self.rect.move_ip((cont[0])*1/4,cont[1]*2/4)
-
 
 class Zombie(Sprite):
     def __init__(self,contenedor):
         self.vida=100
-        self.vel=[random.randint(-3,-1),0]
-        self.imagenes=[pygame.image.load("imagenes/zombie_1.png"),
-                       pygame.image.load("imagenes/zombie_2.png"),
-                       pygame.image.load("imagenes/zombie_3.png"),
-                       pygame.image.load("imagenes/zombie_4.png"),
-                       pygame.image.load("imagenes/zombie_5.png"),
-                       pygame.image.load("imagenes/zombie_6.png"),
-                       pygame.image.load("imagenes/zombie_7.png"),
-                       pygame.image.load("imagenes/zombie_8.png")]
-        self.muricion=pygame.mixer.Sound("sonidos/die_zombie.mp3")
+        self.vel=[random.randint(-15,-4),0]
+        self.imagenes=[pygame.image.load("../imagenes/zombie_1.png"),
+                       pygame.image.load("../imagenes/zombie_2.png"),
+                       pygame.image.load("../imagenes/zombie_3.png"),
+                       pygame.image.load("../imagenes/zombie_4.png"),
+                       pygame.image.load("../imagenes/zombie_5.png"),
+                       pygame.image.load("../imagenes/zombie_6.png"),
+                       pygame.image.load("../imagenes/zombie_7.png"),
+                       pygame.image.load("../imagenes/zombie_8.png")]
+        self.muricion=pygame.mixer.Sound("../sonidos/die_zombie.mp3")
         self.cont=0
         self.contenedor=contenedor 
         self.imagen=pygame.transform.flip(self.imagenes[self.cont],True,False)
         self.rect=self.imagen.get_rect()
-        self.rect.move_ip(800, 460)
+        self.rect.move_ip(Tamaño_pantalla[0], 350)
 
     def update(self):
         self.rect = self.rect.move(self.vel)
         self.cont=(self.cont+1)%8
-        print(self.rect.x)
         self.imagen=pygame.transform.flip(self.imagenes[self.cont],True,False)
 
 def si(juanito,zombies):
         fuente_go = pygame.font.Font(None,100)
         texto_fin = fuente_go.render("FIN DEL JUEGO",1,(250,0,0))
 
-        if random.randint(0,100) % 20 == 0 and len(zombies)<2:
-            zombies.append(Zombie(size))
+        if random.randint(0,100) % 20 == 0 and len(zombies)<3:
+            zombies.append(Zombie(Tamaño_pantalla))
         for zombie in zombies:
             zombie.update()
             screen.blit(zombie.imagen,zombie.rect)
             if juanito.rect.colliderect(zombie.rect):
+                ######para sonido de interaccion
                 juanito.vida -=1
                 screen.blit(zombie.imagen,zombie.rect)
                 zombie.muricion.play()
@@ -79,13 +72,14 @@ def si(juanito,zombies):
                 zombie.muricion.play()
                 zombies.remove(zombie)
             if juanito.vida <= 0:
-                    screen.blit(texto_fin,(150,250))
+                screen.blit(texto_fin,(200,Tamaño_pantalla[1]/2))
+                  
 def main():
     pygame.init()
-    background_image = pygame.image.load("imagenes/negro.jpg")
+    background_image = pygame.image.load("../imagenes/negro.jpg")
     background_rect = background_image.get_rect()
     pygame.display.set_caption("Inserte titulo creativo xd")
-    juanito = Juan(size)
+    juanito = Juan(Tamaño_pantalla)
     zombies = []
 
 
@@ -166,4 +160,3 @@ def main():
 if __name__ == "__main__":
     main()
 
-"""

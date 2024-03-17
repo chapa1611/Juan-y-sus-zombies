@@ -32,14 +32,15 @@ class Tumbas(Sprite):
             else: 
                 self.image = pygame.image.load("Tumbas.jpg")
     
- """   def detectar(self, rect):
-        for t in range(self.rect.bottomleft, self.rect.topleft):
-            if t == rect.left or t == rect.right:
-                print('choque')"""
+    def mostrar_puntuacion(puntos):
+        fuente = pygame.font.Font(None, 36)
+        texto = fuente.render("Puntuación: " + str(puntos), True, BLANCO)
+        screen.blit(texto, (10, 10))
+
         
 
     
- """           
+         
 size = width, height = 800, 600
 screen = pygame.display.set_mode(size)
 tumbas = Tumbas(size)
@@ -58,4 +59,4 @@ while 1:
     screen.blit(tumbe.image, tumbe.rect)
     pygame.display.update()
  
-    pygame.time.delay(10)"""
+    pygame.time.delay(10)

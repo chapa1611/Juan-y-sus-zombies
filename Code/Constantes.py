@@ -2,7 +2,7 @@
 
 import pygame 
 
-Tamaño_pantalla = Ancho, Altura = 942, 490
+Tamaño_pantalla = Ancho, Altura = 914, 514
 
 
 jugador1 = [
