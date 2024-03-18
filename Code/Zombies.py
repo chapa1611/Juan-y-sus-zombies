@@ -10,9 +10,7 @@ from Jugador import *
 screen = pygame.display.set_mode(Tamaño_pantalla)
 blanco=(255,255,255)
 
-"""
-    La clase Cosa solo esta hecha para pruebas de colicion 
-"""
+
 
 class Zombie(Sprite):
     def __init__(self,contenedor):
@@ -26,7 +24,8 @@ class Zombie(Sprite):
                        pygame.image.load("../imagenes/zombie_6.png"),
                        pygame.image.load("../imagenes/zombie_7.png"),
                        pygame.image.load("../imagenes/zombie_8.png")]
-        self.muricion=pygame.mixer.Sound("../sonidos/die_zombie.mp3")
+        self.muricion=pygame.mixer.Sound("../Sonidos/die_zombie.mp3")
+        self.daño_jugador = pygame.mixer.Sound("../Sonidos/daño_jugador1.mp3")
         self.cont=0
         self.contenedor=contenedor 
         self.imagen=pygame.transform.flip(self.imagenes[self.cont],True,False)
@@ -48,7 +47,7 @@ def si(juanito,zombies):
             zombie.update()
             screen.blit(zombie.imagen,zombie.rect)
             if juanito.rect.colliderect(zombie.rect):
-                ######para sonido de interaccion
+                zombie.daño_jugador.play()
                 juanito.vida -=1
                 screen.blit(zombie.imagen,zombie.rect)
                 zombie.muricion.play()

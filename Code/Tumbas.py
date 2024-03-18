@@ -1,62 +1,65 @@
-import sys 
+
 import pygame 
 import random
-import time
 from pygame.sprite import Sprite
+
+from Constantes import *
+from Jugador import *
+from Pantalla import *
+from Zombies import *
 
 class Tumbas(Sprite):
     def __init__(self,contenedor):
         Sprite.__init__(self)
         self.contenedor = contenedor
-        self.base_image = pygame.image.load("Tumbas.jpg")
-        self.image = self.base_image
+        self.cont = 0
+        self.imagenes = tumba_img1
+        self.imagen = self.imagenes[self.cont]
+        self.image = self.imagen
         self.rect = self.image.get_rect()
-        self.velocidad = 50
-        self.rect.x = size[0] + 236
-        self.rect.y = 300
+        self.velocidad = 2.5
+        self.rect.x = Tamaño_pantalla[0] 
+        self.rect.y = 425
+        self.daño_jugador = pygame.mixer.Sound("../Sonidos/daño_jugador2.mp3")
 
     def update(self): 
 
           self.rect.x -= self.velocidad
-          if self.rect.x + 236 < 0: #236 es el ancho de la imagen de referencia
-            self.rect.x = size[0] + 236
-          self.mano()
-         
-         
-    def mano(self):
-        if self.rect.x <= size[0]:
-            num = random.randint(1,5)
-            pygame.time.wait(400) 
-            if num == 5:
-                self.image = pygame.image.load("Tumbasmano.jpg")
-            else: 
-                self.image = pygame.image.load("Tumbas.jpg")
-    
-    def mostrar_puntuacion(puntos):
-        fuente = pygame.font.Font(None, 36)
-        texto = fuente.render("Puntuación: " + str(puntos), True, BLANCO)
-        screen.blit(texto, (10, 10))
+          if self.rect.x + 50 < 0: 
+            self.rect.x = Tamaño_pantalla[0] 
 
+          self.cont = (self.cont + 1) % 18
+          self.imagenes = tumba_img2
+          self.image = self.imagenes[self.cont]
+          #pygame.time.delay(80)
+def tumPlay(juanito, tumbas,puntos):
         
+        for tumba in tumbas:
+            tumba.update() 
+            screen.blit(tumba.image, tumba.rect)
+            if juanito.rect.colliderect(tumba.rect) and tumba.image == tumba_img2[8]:
+                ######para sonido de interaccion
+                juanito.vida -=0.25
+                tumba.daño_jugador.play()
+              
+            elif juanito.rect.colliderect(tumba.rect):
+                puntos = 10
+                
+                       
+        if random.randint(0,1000) % 20 == 0 and len(tumbas)<3:
+            pygame.time.delay(200)        
+            tumbas.append(Tumbas(size))
+        return puntos    
+                
 
-    
-         
-size = width, height = 800, 600
+size = Tamaño_pantalla
 screen = pygame.display.set_mode(size)
-tumbas = Tumbas(size)
+puntos = 0
+tumbas = []
+juanito = Juan(Tamaño_pantalla) 
+                
+      
+   
 
-pygame.init()
 
-while 1:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT: 
-            sys.exit() 
-    screen.fill((0,0,0))
-    
-    tumbas.update() 
-             
-    screen.blit(tumbas.image, tumbas.rect)
-    screen.blit(tumbe.image, tumbe.rect)
-    pygame.display.update()
- 
-    pygame.time.delay(10)
+

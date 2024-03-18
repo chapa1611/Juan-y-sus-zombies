@@ -3,7 +3,7 @@
 from Constantes import *
 from Jugador import *
 from Pantalla import *
-#from Tumbas import *
+from Tumbas import *
 from Zombies import *
 
 import pygame 
@@ -18,11 +18,13 @@ def main():
   juanito = Juan(Tamaño_pantalla)
   zombies = []
   x = 0
+  puntos = 0
+  tumbas = []
   while 1:
 
       for event in pygame.event.get():
   	    if event.type == pygame.QUIT:
-  		    sys.exit()
+  		    sys.exit()         
       x_relativa = x % background_image.get_rect().width
       screen.blit(background_image, (x_relativa -
                     background_image.get_rect().width, 0))
@@ -30,13 +32,18 @@ def main():
             screen.blit(background_image, (x_relativa, 0))
       x -= 1
       RELOJ.tick(FPS)
+      puntos += tumPlay(juanito, tumbas,puntos)
+      fuente = pygame.font.Font(None, 36)
+      texto = fuente.render("Puntuación: " + str(puntos),1, (255,255,255))
+      screen.blit(texto, (10, 10))  
 
       juanito.animar()
       screen.blit(juanito.imagen, juanito.rect)
       juanito.balas.draw(screen)
       juanito.espadas.draw(screen)
       si(juanito,zombies)
-   
+
+    
       pygame.display.update()
       pygame.time.delay(10)
 

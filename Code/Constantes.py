@@ -4,6 +4,32 @@ import pygame
 
 Tamaño_pantalla = Ancho, Altura = 914, 514
 
+tumba_img1 = [    
+    pygame.image.load("../imagenes/Tumba1.png"),
+    pygame.image.load("../imagenes/Tumba1.2.png"),
+    
+]
+
+tumba_img2 = [    
+    pygame.image.load("../imagenes/Tumba1.png"),
+    pygame.image.load("../imagenes/Tumba1.3.png"),
+    pygame.image.load("../imagenes/Tumba1.4.png"),
+    pygame.image.load("../imagenes/Tumba1.5.png"),
+    pygame.image.load("../imagenes/Tumba1.6.png"),
+    pygame.image.load("../imagenes/Tumba1.7.png"),
+    pygame.image.load("../imagenes/Tumba1.8.png"),
+    pygame.image.load("../imagenes/Tumba1.9.png"),
+    pygame.image.load("../imagenes/Tumba1.10.png"),
+    pygame.image.load("../imagenes/Tumba1.2.png"), 
+    pygame.image.load("../imagenes/Tumba2.png"),
+    pygame.image.load("../imagenes/Tumba2.1.png"),      
+    pygame.image.load("../imagenes/Tumba3.png"),
+    pygame.image.load("../imagenes/Tumba3.1.png"), 
+    pygame.image.load("../imagenes/Tumba4.png"),
+    pygame.image.load("../imagenes/Tumba4.1.png"), 
+    pygame.image.load("../imagenes/Tumba5.png"),
+    pygame.image.load("../imagenes/Tumba5.1.png")  
+]
 
 jugador1 = [
     pygame.image.load("../imagenes/Juaniz1.png"),
