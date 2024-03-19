@@ -20,7 +20,7 @@ class Juan(Sprite):
         self.imagenes_izquierda = jugador1
         self.imagen = self.imagenes_derecha[self.cont]
         self.rect = self.imagen.get_rect()
-        self.rect.move_ip(50, 350)  # donde va a aparecer el jugador
+        self.rect.move_ip(50, 400)  # donde va a aparecer el jugador
         self.rect.x %= self.contenedor[0]
         self.rect.y %= self.contenedor[1]
         self.bolas = bola[self.cont2]
@@ -142,7 +142,7 @@ class Espada(pygame.sprite.Sprite):
         self.index = 0
         self.image = self.images[self.index]
         self.rect = self.image.get_rect()
-        self.rect.center = (x, y)
+        self.rect.center = (x+27, y)
         # pa que no parezca bala la wea xd (si se le pone un valor alto, ps es como si lo hubiera lanzado xd)
         self.velocidad = 1
         self.last_update = pygame.time.get_ticks()
@@ -166,7 +166,7 @@ class Espada(pygame.sprite.Sprite):
             if self.direction == "right":
                 self.rect.x += self.velocidad
             else:  # y aqui ps si es que el jugador mira pa la derecha o izquierda
-                self.rect.x -= self.velocidad
+                self.rect.x -= self.velocidad + 15
 
             if self.rect.right < 0 or self.rect.left > 800:
                 self.kill()  # para que no pueda matar zombies con la espada que todavia no han llegado a pantalla xd
