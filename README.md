@@ -22,3 +22,4 @@ Agregar sus nombres :
 - Erick Quiñones 20232020074   
 - María Juliana Alzate Saaavedra 20232020082
 - Juan Sebastian Diaz Peña - 20232020071
+- Andres Felipe Chaparro Mosquera - 20231020140
