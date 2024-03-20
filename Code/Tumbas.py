@@ -47,7 +47,7 @@ def tumPlay(juanito, tumbas, puntos):
 
             if juanito.rect.colliderect(tumba.rect) and tumba.image == tumba_img2[8]:
                 # para sonido de interaccion
-                juanito.vida -= 0.25
+                juanito.vida -= 1
                 tumba.daño_jugador.play()
 
             elif juanito.rect.colliderect(tumba.rect):
